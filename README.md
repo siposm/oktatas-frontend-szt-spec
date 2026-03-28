@@ -1,6 +1,25 @@
-# BPROF - Frontend fejlesztés
+## Frontend fejlesztés - Szoftver specializáció BPROF
 
-## Heti bontás
+### 1. félév heti bontás
+
+| Hét |  Témakör |
+| --- | --- |
+| 01. | Féléves tematika és menetrend ismertetése, HTML |
+| 02. | CSS |
+| 03. | CSS preprocesszorok - Sass, Less |
+| 04. | Bootstrap keretrendszer |
+| 05. | JavaScript 1. |
+| 06. | JavaScript 2. |
+| 07. | JavaScript 3. |
+| 08. | 1. zárthelyi dolgozat (elmélet és gyakorlat) |
+| 09. | TypeScript |
+| 10. | Angular 1. |
+| 11. | Angular 2. |
+| 12. | Angular 3. |
+| 13. | 2. zárthelyi dolgozat (elmélet és gyakorlat) |
+| 14. | FF leadás, FF bemutatás, Pótló zárthelyi dolgozat |
+
+### 2. félév heti bontás
 
 | Hét |  Témakör |
 | --- | --- |
@@ -19,6 +38,7 @@
 | 13. | Konzultáció |
 | 14. | Pótló zárthelyi dolgozat |
 
-## TTK
+### TTK
 
-<https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
+- 1. félév: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/frontend-fejlesztes/>
+- 1. félév: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
