@@ -2,6 +2,12 @@
 
 Ez a repository frontend fejlesztéshez kapcsolódó tananyagokat, példákat, gyakorlófeladatokat és kisebb projekteket tartalmaz. A fókusz főként a JavaScript, TypeScript, Angular és a kapcsolódó webes technológiák oktatásán van. A mappák többsége tematikusan vagy heti bontás szerint szervezett.
 
+<br>
+
+---
+
+<br>
+
 ## Mappák áttekintése
 
 #### `angular/`
