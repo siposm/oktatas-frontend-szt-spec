@@ -218,5 +218,5 @@ Tartalma:
 
 ## TTK
 
-- 1. félév: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/frontend-fejlesztes/>
-- 1. félév: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
+- Félév 1.: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/frontend-fejlesztes/>
+- Félév 2.: <https://nik.uni-obuda.hu/targyleirasok/tantargyak/halado-szoftverfejlesztes-es-teszteles/>
