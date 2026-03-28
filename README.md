@@ -4,7 +4,7 @@ Ez a repository frontend fejlesztéshez kapcsolódó tananyagokat, példákat, g
 
 ## Mappák áttekintése
 
-### `angular/`
+#### `angular/`
 
 Angular alapú példák és mini projektek, az alapoktól a haladóbb témákig.
 
@@ -33,7 +33,7 @@ Tartalma többek között:
 
 ---
 
-### `archive/`
+#### `archive/`
 
 Archivált, értékeléshez vagy féléves munkához kapcsolódó leírások.
 
@@ -45,7 +45,7 @@ Tartalma:
 
 ---
 
-### `css-preprocessor/`
+#### `css-preprocessor/`
 
 CSS preprocesszorokhoz kapcsolódó példák és feladatok.
 
@@ -62,7 +62,7 @@ Tartalma:
 
 ---
 
-### `html-01-02-03/`
+#### `html-01-02-03/`
 
 Bevezető HTML és CSS példák.
 
@@ -79,7 +79,7 @@ Tartalma többek között:
 
 ---
 
-### `js-01/`
+#### `js-01/`
 
 Alap JavaScript példák.
 
@@ -92,7 +92,7 @@ Tartalma:
 
 ---
 
-### `js-02/`
+#### `js-02/`
 
 Középhaladó JavaScript példák, főként böngészőoldali működésre és aszinkron programozásra fókuszálva.
 
@@ -109,7 +109,7 @@ Tartalma többek között:
 
 ---
 
-### `js-03/`
+#### `js-03/`
 
 Haladóbb JavaScript példák és kisebb alkalmazások.
 
@@ -129,7 +129,7 @@ Tartalma többek között:
 
 ---
 
-### `practice/`
+#### `practice/`
 
 Gyakorlófeladatok és feladatkiírások hallgatók számára.
 
@@ -145,7 +145,7 @@ Tartalma Angularhoz és frontend fejlesztéshez kapcsolódó feladatokat tartalm
 
 ---
 
-### `typescript/`
+#### `typescript/`
 
 TypeScript példák és kisebb projektek.
 
