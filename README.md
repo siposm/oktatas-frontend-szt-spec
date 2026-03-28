@@ -45,9 +45,9 @@ Archivált, értékeléshez vagy féléves munkához kapcsolódó leírások.
 
 Tartalma:
 
-- `exam-01.md`
-- `exam-02.md`
-- `semester-project.md`
+- `exam-01.md` - első számonkéréssel kapcsolatos információk
+- `exam-02.md` - második számonkéréssel kapcsolatos információk
+- `semester-project.md` - féléves feladattal kapcsolatos elvárások
 
 ---
 
