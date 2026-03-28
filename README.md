@@ -1,6 +1,6 @@
 ## Frontend fejlesztés - Szoftver specializáció BPROF
 
-Ez a repository frontend fejlesztéshez kapcsolódó tananyagokat, példákat, gyakorlófeladatokat és kisebb projekteket tartalmaz. A fókusz főként a JavaScript, TypeScript, Angular és a kapcsolódó webes technológiák oktatásán van.
+Ez a repository frontend fejlesztéshez kapcsolódó tananyagokat, példákat, gyakorlófeladatokat és kisebb projekteket tartalmaz. A fókusz főként a JavaScript, TypeScript, Angular és a kapcsolódó webes technológiák oktatásán van. A mappák többsége tematikusan vagy heti bontás szerint szervezett.
 
 ## Mappák áttekintése
 
@@ -153,15 +153,6 @@ Tartalma:
 
 - `basics/` – bevezető TypeScript példa, fordítással és alap szintaxissal
 - `snake/` – TypeScript alapú snake projekt `src/` és `dist/` mappával
-
----
-
-## Megjegyzések
-
-- A mappák többsége tematikusan vagy heti bontás szerint szervezett.
-- Több könyvtár önállóan futtatható demóalkalmazásokat tartalmaz.
-- Az Angular alprojektek jellemzően saját `README.md` fájllal, konfigurációval és külön forráskóddal rendelkeznek.
-- A repository oktatási célra készült, és példákat, gyakorlófeladatokat, valamint projektanyagokat egyaránt tartalmaz.
 
 <br>
 
