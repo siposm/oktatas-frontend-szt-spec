@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+        }
+
+        .div1 {
+            grid-area: 1 / 1 / 2 / 5;
+        }
+
+        .div2 {
+            grid-area: 4 / 1 / 5 / 5;
+        }
+
+        .div3 {
+            grid-area: 5 / 1 / 6 / 5;
+        }
+
+        .div4 {
+            grid-area: 2 / 1 / 4 / 4;
+        }
+
+        .div5 {
+            grid-area: 2 / 4 / 4 / 5;
+        }
+
+        .div1,
+        .div2,
+        .div3,
+        .div4,
+        .div5 {
+            border: 3px solid red;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Grid 2 demo</h1>
+    <hr>
+    <div class="parent">
+        <div class="div1">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolorum corporis fugiat exercitationem magni error veritatis aliquid nihil ipsum. Exercitationem, dolorem. Praesentium hic voluptatibus, ratione aliquid impedit eveniet. Dolorem, a?</p>
+        </div>
+        <div class="div2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolorum corporis fugiat exercitationem magni error veritatis aliquid nihil ipsum. Exercitationem, dolorem. Praesentium hic voluptatibus, ratione aliquid impedit eveniet. Dolorem, a?</p>
+        </div>
+        <div class="div3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolorum corporis fugiat exercitationem magni error veritatis aliquid nihil ipsum. Exercitationem, dolorem. Praesentium hic voluptatibus, ratione aliquid impedit eveniet. Dolorem, a?</p>
+        </div>
+        <div class="div4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolorum corporis fugiat exercitationem magni error veritatis aliquid nihil ipsum. Exercitationem, dolorem. Praesentium hic voluptatibus, ratione aliquid impedit eveniet. Dolorem, a?</p>
+        </div>
+        <div class="div5">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, dolorum corporis fugiat exercitationem magni error veritatis aliquid nihil ipsum. Exercitationem, dolorem. Praesentium hic voluptatibus, ratione aliquid impedit eveniet. Dolorem, a?</p>
+        </div>
+    </div>
+</body>
+
+</html>

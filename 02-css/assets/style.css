@@ -1,0 +1,28 @@
+body {
+	background-color: beige;
+}
+
+#my-list {
+	color: blue;
+}
+
+#wrapper p:nth-child(2) {
+	letter-spacing: 5px;
+	font-weight: bold;
+	color: rgb(190, 50, 205);
+}
+
+#wrapper {
+	margin: 30px;
+	text-align: center;
+	border-top: 5px solid rgb(190, 50, 205);
+	border-bottom: 5px solid rgb(190, 50, 205);
+}
+
+#wrapper:hover {
+	background-color: aquamarine;
+}
+
+#wrapper:active {
+	background-color: violet;
+}
