@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		html {
+			background-color: bisque;
+			border: 4px solid green;
+		}
+		p {
+			background-color: azure;
+			padding: 10px 20px;
+			text-align: center;
+		}
+
+		p::before {
+			content: "✅ ";
+		}
+
+		* {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>Lorem, ipsum dolor.</p>
+		<p>Lorem, ipsum dolor.</p>
+		<ul>
+			<li>Lista elem 123</li>
+			<li>Lista elem 123</li>
+			<li>Lista elem 123</li>
+		</ul>
+		<p>Lorem, ipsum dolor.</p>
+		<p>Lorem, ipsum dolor.</p>
+		<p>Lorem, ipsum dolor.</p>
+	</div>
+</body>
+</html>
