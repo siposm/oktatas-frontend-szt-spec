@@ -2,9 +2,15 @@
 
 Készítsétek el a követkető JS gyakorló feladatokat a tanultaknak megfelelően. A cél, hogy magabiztosan programozzatok a már megszerzett korábbi tárgyakon lévő tudással JS nyelven. Ehhez ismerni kell a JS nyelv szintaktikáját és sajátosságait, ez pedig gyakorlással érhető el.
 
-A következő feladatokat külön függvényekkel (és ha kell, osztályokkal) készítsétek el és saját algoritmusokkal dolgozzatok, ne beépített tömb metódusokkal.
+A következő feladatokat külön függvényekkel (és ha kell, osztályokkal) készítsétek el és saját algoritmusokkal dolgozzatok, ne beépített tömb metódusokkal. Használjatok jsdoc kommenteket.
 
 Az egyes feladatokat a nekik megfelelő, jelzett JS állományokba tegyétek, amiket aztán a HTML-be be lehet hivatkozni.
+
+```html
+<script src="numbers.js"></script>
+<script src="string.js"></script>
+<script src="objects.js"></script>
+```
 
 #### Egyszerű feladat, számokkal (`numbers.js`)
 
@@ -15,11 +21,11 @@ Az egyes feladatokat a nekik megfelelő, jelzett JS állományokba tegyétek, am
 - válogassátok le a 10-nél nagyobb és 20-nál kisebb számokat egy külön tömbbe
 - távolítsátok el az ismétlődő elemeket a tömbből, az eredmény egy új tömbbe kerüljön
 
-#### Komplex feladat, stringekkel (`string.js`)
+#### Komplex feladat, stringekkel (`strings.js`)
 
 Az alábbi JSON tömböt feldolgoza, készítsétek el a következő feladatokat.
 
-```json
+```js
 let movies = [
 	"Inception#Sci-Fi#2010#8",
 	"The Godfather#Bűnügyi#1972#9",
@@ -41,7 +47,7 @@ let movies = [
 
 Az alábbi JSON tömböt feldolgoza, készítsétek el a következő feladatokat.
 
-```json
+```js
 let cars = [
 	{
 		brand: "BMW",
@@ -80,7 +86,7 @@ let cars = [
 - adjuk vissza azoknak az autóknak a márkáját és modelljét, amelyek legalább 3 extrával rendelkeznek
 - mely extrák fordulnak elő egynél több autónál
 - a 2. legrégebbi évjárattal megegyező évjáratú autóknak mennyi az átlagos extraszámuk
-- a cars tömböt bejárva, a meglévő névtelejn objektumokból hozzatok létre Car típusú objektumot (ehhez pedig a szükséges Car osztályt is implementáljátok)
+- a cars tömböt bejárva, a meglévő névtelen objektumokból hozzatok létre Car típusú objektumot (ehhez pedig a szükséges Car osztályt is implementáljátok)
 
 
 
