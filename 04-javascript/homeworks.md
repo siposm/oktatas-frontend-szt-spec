@@ -1,8 +1,8 @@
 ### GYAKORLÓ HÁZI FELADAT
 
-Készítsétek el a követkető JS gyakorló feladatokat a tanultaknak megfelelően.
+Készítsétek el a követkető JS gyakorló feladatokat a tanultaknak megfelelően. A cél, hogy magabiztosan programozzatok a már megszerzett korábbi tárgyakon lévő tudással JS nyelven. Ehhez ismerni kell a JS nyelv szintaktikáját és sajátosságait, ez pedig gyakorlással érhető el.
 
-A következő feladatokat külön függvényekkel készítsétek el és saját algoritmusokkal dolgozzatok, ne beépített tömb metódusokkal.
+A következő feladatokat külön függvényekkel (és ha kell, osztályokkal) készítsétek el és saját algoritmusokkal dolgozzatok, ne beépített tömb metódusokkal.
 
 Az egyes feladatokat a nekik megfelelő, jelzett JS állományokba tegyétek, amiket aztán a HTML-be be lehet hivatkozni.
 
@@ -80,3 +80,9 @@ let cars = [
 - adjuk vissza azoknak az autóknak a márkáját és modelljét, amelyek legalább 3 extrával rendelkeznek
 - mely extrák fordulnak elő egynél több autónál
 - a 2. legrégebbi évjárattal megegyező évjáratú autóknak mennyi az átlagos extraszámuk
+- a cars tömböt bejárva, a meglévő névtelejn objektumokból hozzatok létre Car típusú objektumot (ehhez pedig a szükséges Car osztályt is implementáljátok)
+
+
+
+
+
