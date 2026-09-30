@@ -8,7 +8,8 @@ Az egyes feladatokat a nekik megfelelő, jelzett JS állományokba tegyétek, am
 
 ```html
 <script src="numbers.js"></script>
-<script src="string.js"></script>
+<script src="strings.js"></script>
+<script src="arrays.js"></script>
 <script src="objects.js"></script>
 ```
 
