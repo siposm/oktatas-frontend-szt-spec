@@ -6,7 +6,11 @@ const todos = [
 	{ content: "ZH-ra kell tanulni" },
 ]
 
-function render(todos) {
+/**
+ * Renders the list of the TODO objects.
+ * @param {array} todos - Array of TODO objects
+ */
+function render() {
 	let todoListTarget = document.querySelector("#todo-list")
 
 	todos.forEach(element => {
@@ -17,4 +21,25 @@ function render(todos) {
 	})
 }
 
-render(todos)
+/**
+ * Creates TODO object based on input value.
+ */
+function createTodo() {
+	let input = document.querySelector("#todo-input")
+	if (input.value !== "") {
+		// add new item
+		todos.push({ content: input.value })
+
+		// reset previous state of the parent DOM element to empty
+		let todoListTarget = document.querySelector("#todo-list")
+		todoListTarget.textContent = ""
+
+		// re-render everything
+		render(todos)
+
+		// input reset
+		input.value = ""
+	}
+}
+
+render()
