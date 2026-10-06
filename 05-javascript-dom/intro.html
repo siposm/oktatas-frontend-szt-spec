@@ -12,6 +12,14 @@
   </head>
   <body>
 		<h1>Developers</h1>
+		<div class="items">
+			<p class="p-item">lorem</p>
+			<p class="p-item">ipsum</p>
+			<p class="p-item">dolor</p>
+			<p class="p-item">sit</p>
+			<p class="p-item">amet</p>
+			<p class="p-item">consectetur</p>
+		</div>
 		<hr>
 		<div id="dev-names-only"></div>
 		<hr>
@@ -93,6 +101,14 @@
       //     skills: ["JavaScript", "HTML", "CSS", "Angular", "Sass CSS"]
       //   }
 
+			function getItemsFromDOM() {
+				console.log(document.querySelector(".items")) // parent node
+
+				console.log(document.querySelector(".p-item")) // 1st element only
+
+				console.log(document.querySelectorAll(".p-item")) // all elements
+			}
+
 			function displayNames() {
 				let target = document.querySelector("#dev-names-only")
 				for (let i = 0; i < developers.length; i++) {
@@ -127,6 +143,7 @@
 				target.textContent = avg + " EUR"
 			}
 
+			getItemsFromDOM()
 			displayNames()
 			displayNamesAndEmails()
 			calculateAvgSalary()
