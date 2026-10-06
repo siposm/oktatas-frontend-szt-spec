@@ -128,3 +128,10 @@ Az egyes sorok egy-egy tárgyra járó diákokat reprezentálnak. A HTML-en azt 
 ```
 
 Amikor egy adott hallgató nevére kattintunk egérrel, akkor az legyen megjelölve félkövér stílussal és kék színnel. CSS-t felhasználva állítsa be, hogy a hallgató neve előtt egy tetszőleges emoji jelenjen meg.
+
+#### Hatodik házi feladat
+
+Az órai TODO manager feladatot bővíteni a következők szerint:
+- a TODO-k legyenek külön megjelenítve kész / nem kész státusz alapján (pl. két táblázatban)
+- üres táblázat ne magában álljon, hanem valamilyen szöveg jelenjen meg, hogy "Nincs még elem" vagy "Mindennel készen vagy :)"
+- a táblázat felett legyen egy-egy számláló, ami mutatja, hogy hány teendő van összesen és ebből hány van készen

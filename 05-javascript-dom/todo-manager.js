@@ -1,9 +1,9 @@
 "use strict"
 
 const todos = [
-	{ id: "1rv3gt", content: "El kell mosogatni mert vendégek jönnek" },
-	{ id: "bwmvwl", content: "Kutyát meg kell etetni" },
-	{ id: "vww1v4", content: "ZH-ra kell tanulni" },
+	{ id: "1rv3gt", content: "El kell mosogatni mert vendégek jönnek", finished: false },
+	{ id: "bwmvwl", content: "Kutyát meg kell etetni", finished: true },
+	{ id: "vww1v4", content: "ZH-ra kell tanulni", finished: true },
 ]
 
 /**
@@ -17,18 +17,59 @@ function render() {
 	todoListTarget.textContent = ""
 
 	todos.forEach(element => {
-		let p = document.createElement("p")
+		let tr = document.createElement("tr")
+		let idTd = document.createElement("td")
+		let contentTd = document.createElement("td")
+		let actionsTd = document.createElement("td")
 
-		p.dataset.id = element.id
+		idTd.classList.add("p-2")
+		contentTd.classList.add("p-2")
+		actionsTd.classList.add("p-2")
 
-		p.addEventListener("click", () => {
-			loadForEdit(p)
-		})
+		// generate edit button for actions
+		let loadForEditButton = document.createElement("button")
+		loadForEditButton.classList.add("btn", "btn-sm", "btn-warning", "me-2")
+		loadForEditButton.textContent = "Edit"
+		actionsTd.appendChild(loadForEditButton)
 
-		p.classList.add("todo-item")
-		p.textContent = element.content
-		todoListTarget.appendChild(p)
+		// generate finish button for actions
+		let finishButton = document.createElement("button")
+		finishButton.classList.add("btn", "btn-sm", "btn-success")
+		finishButton.textContent = "Done"
+		actionsTd.appendChild(finishButton)
+
+		// add event listeners
+		loadForEditButton.addEventListener("click", () => loadForEdit(contentTd))
+		finishButton.addEventListener("click", () => markAsFinished(contentTd))
+
+		// set values
+		idTd.textContent = element.id
+		contentTd.textContent = element.content
+		contentTd.dataset.id = element.id
+		if(element.finished) {
+			contentTd.classList.add("finished")
+		}
+
+		// append everything in order
+		tr.appendChild(idTd)
+		tr.appendChild(contentTd)
+		tr.appendChild(actionsTd)
+		todoListTarget.appendChild(tr)
 	})
+}
+
+/**
+ * Mark a specific TODO object as finished.
+ * @param {HTMLElement | object} todoElement - The selected HTML element.
+ */
+function markAsFinished(todoElement) {
+	todos.forEach(item => {
+		if (item.id === todoElement.dataset.id) {
+			item.finished = !item.finished
+		}
+	})
+
+	render()
 }
 
 /**
@@ -83,4 +124,5 @@ function generateId() {
 	return Math.random().toString(36).substring(2, 8)
 }
 
+// init 1st call
 render()

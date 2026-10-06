@@ -6,15 +6,18 @@
 	<title>TODO Manager</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 	<style>
-		.todo-item::before {
-			content: "✅";
-			padding-right: 3px;
+		.finished {
+			text-decoration: line-through;
+			color: rgb(31, 150, 56) !important;
+		}
+		.finished::before {
+			content: "✅ ";
 		}
 	</style>
 </head>
 <body>
 	<h1 class="text-center mt-2">TODO Manager</h1>
-	<hr>
+
 	<div class="row m-3">
 		<div class="col alert alert-info m-2">
 			<h4>CREATE NEW TODO</h4>
@@ -27,10 +30,17 @@
 			<button onclick="update()" class="btn btn-warning">UPDATE</button>
 		</div>
 	</div>
-	<hr>
+
 	<div class="container">
 		<h4>List of TODOs</h4>
-		<div id="todo-list"></div>
+		<table class="table table-hover table-striped table-sm align-middle mt-3">
+			<thead>
+				<td class="p-2">ID</td>
+				<td class="p-2">Content</td>
+				<td class="p-2">&nbsp;</td>
+			</thead>
+			<tbody id="todo-list"></tbody>
+		</table>
 	</div>
 
 	<script src="todo-manager.js"></script>
