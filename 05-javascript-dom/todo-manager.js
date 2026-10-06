@@ -30,17 +30,17 @@ function render() {
 		let loadForEditButton = document.createElement("button")
 		loadForEditButton.classList.add("btn", "btn-sm", "btn-warning", "me-2")
 		loadForEditButton.textContent = "Edit"
-		actionsTd.appendChild(loadForEditButton)
+		loadForEditButton.dataset.action = "edit"
 
 		// generate finish button for actions
 		let finishButton = document.createElement("button")
 		finishButton.classList.add("btn", "btn-sm", "btn-success")
 		finishButton.textContent = "Done"
-		actionsTd.appendChild(finishButton)
+		finishButton.dataset.action = "finish"
 
 		// add event listeners
-		loadForEditButton.addEventListener("click", () => loadForEdit(contentTd))
-		finishButton.addEventListener("click", () => markAsFinished(contentTd))
+		// loadForEditButton.addEventListener("click", () => loadForEdit(contentTd))
+		// finishButton.addEventListener("click", () => markAsFinished(contentTd))
 
 		// set values
 		idTd.textContent = element.id
@@ -51,6 +51,8 @@ function render() {
 		}
 
 		// append everything in order
+		actionsTd.appendChild(loadForEditButton)
+		actionsTd.appendChild(finishButton)
 		tr.appendChild(idTd)
 		tr.appendChild(contentTd)
 		tr.appendChild(actionsTd)
@@ -124,5 +126,29 @@ function generateId() {
 	return Math.random().toString(36).substring(2, 8)
 }
 
+/**
+ * Initializing event listeners.
+ */
+function initEventListeners() {
+	let todoList = document.querySelector("#todo-list")
+	todoList.addEventListener("click", event => {
+		if (event.target.tagName !== "BUTTON") {
+			return
+		}
+
+		let row = event.target.closest("tr")
+		let contentTd = row.children[1]
+
+		if (event.target.dataset.action === "edit") {
+			loadForEdit(contentTd)
+		}
+
+		if (event.target.dataset.action === "finish") {
+			markAsFinished(contentTd)
+		}
+	})
+}
+
 // init 1st call
+initEventListeners()
 render()
