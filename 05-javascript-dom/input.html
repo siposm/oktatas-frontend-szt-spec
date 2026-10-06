@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>INPUT handling</title>
+</head>
+<body>
+	<h1>INPUT handling</h1>
+	<hr>
+	<input type="text" placeholder="Your content..." id="my-input" onkeyup="log()">
+	<button onclick="process()">Send this</button>
+	<hr>
+	<h6>RESULT:</h6>
+	<div id="result"></div>
+	<hr>
+	<h6>LOGS:</h6>
+	<div id="logs"></div>
+
+	<script>
+		function process() {
+			// read from input
+			let input = document.querySelector("#my-input")
+			let value = input.value
+
+			// modify, analyze, etc.
+			let capitalized = value.toUpperCase()
+			capitalized = "-- " + capitalized + " --"
+
+			// write to HTML via DOM
+			let result = document.querySelector("#result")
+			result.textContent = capitalized
+		}
+
+		function log() {
+			let input = document.querySelector("#my-input")
+			let logs = document.querySelector("#logs")
+
+			logs.textContent = input.value
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INTRO</title>
+		<style>
+			a:link {
+				margin-left: 5px;
+			}
+		</style>
+  </head>
+  <body>
+		<h1>Developers</h1>
+		<hr>
+		<div id="dev-names-only"></div>
+		<hr>
+		<div id="dev-names-and-emails"></div>
+		<hr>
+		<div id="avg-salary"></div>
+
+
+    <script>
+      let developers = [
+        {
+          name: "John Doe",
+          role: "Fejlesztő",
+          salary: 5000,
+          email: "john.doe@example.com",
+          skills: ["JavaScript", "HTML", "CSS", "Angular", "Sass CSS"]
+        },
+        {
+          name: "Jane Smith",
+          role: "Projektvezető",
+          salary: 6000,
+          email: "jane.smith@example.com",
+          skills: ["Team leadership", "SCRUM", "Soft skills"]
+        },
+        {
+          name: "David Johnson",
+          role: "Tesztelő",
+          salary: 4500,
+          email: "david.johnson@example.com",
+          skills: ["nUnit", "Moq framework", "E2E testing"]
+        },
+        {
+          name: "Emily Williams",
+          role: "Fejlesztő",
+          salary: 4000,
+          email: "emily.williams@example.com",
+          skills: [
+            "React",
+            "Node.js",
+            "Git",
+            "Less CSS",
+            "Docker",
+            "C#",
+            "JavaScript"
+          ]
+        },
+        {
+          name: "Michael Brown",
+          role: "Rendszergazda",
+          salary: 5500,
+          email: "michael.brown@example.com",
+          skills: ["Linux", "AWS", "Docker", "Serverless architecture"]
+        },
+        {
+          name: "Sarah Taylor",
+          role: "Területi Vezető",
+          salary: 7000,
+          email: "sarah.taylor@example.com",
+          skills: [
+            "Team management",
+            "Client communication",
+            "Project planning"
+          ]
+        },
+        {
+          name: "Christopher Miller",
+          role: "Analitikus",
+          salary: 5200,
+          email: "christopher.miller@example.com",
+          skills: ["Python", "SQL", "Tableau"]
+        }
+      ]
+
+			// {
+      //     name: "John Doe",
+      //     role: "Fejlesztő",
+      //     salary: 5000,
+      //     email: "john.doe@example.com",
+      //     skills: ["JavaScript", "HTML", "CSS", "Angular", "Sass CSS"]
+      //   }
+
+			function displayNames() {
+				let target = document.querySelector("#dev-names-only")
+				for (let i = 0; i < developers.length; i++) {
+					let div = document.createElement("div")
+					div.textContent = developers[i].name
+					target.appendChild(div)
+				}
+			}
+
+			function displayNamesAndEmails() {
+				let target = document.querySelector("#dev-names-and-emails")
+				for (let i = 0; i < developers.length; i++) {
+					let paragraph = document.createElement("p")
+					paragraph.textContent = developers[i].name
+
+					let link = document.createElement("a")
+					link.href = `mailto:${developers[i].email}`
+					link.textContent = developers[i].email
+
+					paragraph.appendChild(link)
+					target.appendChild(paragraph)
+				}
+			}
+
+			function calculateAvgSalary() {
+				let sum = 0
+				developers.forEach(x => {
+					sum += x.salary
+				})
+				let avg = Math.round(sum / developers.length)
+				let target = document.querySelector("#avg-salary")
+				target.textContent = avg + " EUR"
+			}
+
+			displayNames()
+			displayNamesAndEmails()
+			calculateAvgSalary()
+		</script>
+  </body>
+</html>
