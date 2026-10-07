@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Scopes</h1>
+    <script>
+        let name = "John Doe"
+
+        if (true) {
+            var variable = "lorem ipsum"
+            let variable2 = "dolor sit amet"
+        }
+
+        function demo() {
+            console.log(name) // elérhető mert global scope
+        }
+
+        console.log(variable) // elérhető
+        console.log(variable2) // hiba
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #target-filtered {
+        background-color: rgb(199, 255, 204);
+      }
+
+      #target-raw {
+        background-color: rgb(255, 193, 193);
+      }
+
+      #target-raw,
+      #target-filtered {
+        padding: 10px;
+        min-height: 200px;
+      }
+
+      li {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>XSS</h1>
+    <input type="text" id="input" />
+    <button onclick="save()">Save</button>
+    <hr />
+    <ul id="target-raw"></ul>
+    <hr />
+    <ul id="target-filtered"></ul>
+    <script>
+      function save() {
+        let target_filtered = document.querySelector("#target-filtered")
+        let target_raw = document.querySelector("#target-raw")
+
+        let value = document.querySelector("#input").value
+
+        let li_filtered = document.createElement("li")
+        let li_raw = document.createElement("li")
+
+        li_filtered.textContent = value
+        li_raw.innerHTML = value
+
+        target_filtered.appendChild(li_filtered)
+        target_raw.appendChild(li_raw)
+
+        // inputból adjuk hozzá: <button onclick="alert('hello')">alma</button>
+        // inputból adjuk hozzá: <input onkeyup="console.log(event.key)">
+        // inputból adjuk hozzá: <img src="x" onerror="document.addEventListener('keydown', e => console.log(e.key))">
+      }
+    </script>
+  </body>
+</html>

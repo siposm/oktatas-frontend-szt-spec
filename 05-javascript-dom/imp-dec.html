@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Imperative vs Declarative</h1>
+    <p>1 Lorem, ipsum.</p>
+    <p>2 Lorem, ipsum.</p>
+    <p>3 Lorem, ipsum.</p>
+    <hr />
+    <i>x</i>
+    <i>x</i>
+    <i>x</i>
+    <script>
+      // imperatív
+      // ------------------------------------------------------------
+      let pTags = document.querySelectorAll("p")
+      pTags[0].style.color = "red"
+      pTags[0].innerHTML = "new content"
+
+      // deklaratív
+      // ------------------------------------------------------------
+      let contents = ["Lorem-1", "Lorem-2", "Lorem-3"]
+      mapItems(contents)
+      // a mapItems függvényt tipikusan egy keretrendszerben a háttérmechanika végzi el
+      function mapItems(array) {
+        let iTags = document.querySelectorAll("i")
+        for (let i = 0; i < array.length; i++) {
+          iTags[i].innerHTML = array[i]
+        }
+      }
+
+      // angular-ban:
+      //
+      // @Component({
+      // selector: 'app-root',
+      // template: `
+      //     <div>
+      //          <i *ngFor="let content of contents">{{ content }}</i>
+      //     </div>
+      // `
+      // })
+      // export class AppComponent {
+      //     contents = ["Lorem-1", "Lorem-2", "Lorem-3"];
+      // }
+    </script>
+  </body>
+</html>
