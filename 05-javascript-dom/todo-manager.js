@@ -8,7 +8,6 @@ const todos = [
 
 /**
  * Renders the list of the TODO objects.
- * @param {array} todos - Array of TODO objects
  */
 function render() {
 	let todoListTarget = document.querySelector("#todo-list")
