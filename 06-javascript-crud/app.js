@@ -68,7 +68,7 @@ class Logic {
       },
       {
         name: "Sarah Taylor",
-        role: "TerĂźleti Vezető",
+        role: "Területi Vezető",
         salary: 7000,
         email: "sarah.taylor@example.com",
         skills: ["Team management", "Client communication", "Project planning"]
@@ -89,14 +89,44 @@ class Logic {
  * creating HTML elements based on given data.
  */
 class Renderer {
-  renderCards(array) {
+	/**
+	 * Renders the Bootstrap cards for each element in the array.
+	 * @param {array} array Array of developers
+	 */
+	renderCards(array) {
     let t = document.querySelector(".target")
-		array.forEach(dev => {
-			let p = document.createElement("p")
-			p.textContent += dev.name
-			t.appendChild(p)
-		})
+		array.map(developer => t.appendChild(this.createCard(developer)))
   }
+
+	/**
+	 * Creates Bootstrap card for given input developer.
+	 * @param {object} developer Developer object
+	 * @returns {object} HTML card object
+	 */
+	createCard(developer) {
+		let card = document.createElement("div")
+		card.classList.add("card")
+		card.classList.add("mb-3")
+
+		card.innerHTML = `
+			<div class="card-body">
+				<h5 class="card-title">${developer.name}</h5>
+				<h6 class="card-subtitle mb-2 text-body-secondary">${developer.role}</h6>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><b>Elérhetőség:</b> ${developer.email}</li>
+				<li class="list-group-item"><b>Bérezés:</b> ${developer.salary} Ft / óra (bruttó)</li>
+				<li class="list-group-item"><b>Tapasztalatok:</b> ${developer.skills.join(" - ")}</li>
+			</ul>
+			<div class="card-body d-flex justify-content-end">
+				<a href="#" class="btn btn-sm btn-warning">
+					<i class="bi bi-pencil-square me-1"></i>
+					Szerkesztés
+				</a>
+			</div>
+		`
+		return card
+	}
 }
 
 const renderer = new Renderer()
