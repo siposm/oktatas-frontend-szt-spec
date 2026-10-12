@@ -22,6 +22,44 @@
 		<div>BPROF Szoftver Specializáció</div>
 	</footer>
 
+	<!-- template for card elements, to use from JS -->
+	<template id="developer-card-template">
+		<div class="card mb-3">
+			<div class="card-body">
+				<h5 class="card-title"></h5>
+				<h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+			</div>
+
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<b>Elérhetőség:</b>
+					<span class="email"></span>
+				</li>
+
+				<li class="list-group-item">
+					<b>Bérezés:</b>
+					<span class="salary"></span>
+				</li>
+
+				<li class="list-group-item">
+					<b>Tapasztalatok:</b>
+					<span class="skills"></span>
+				</li>
+			</ul>
+
+			<div class="card-body d-flex justify-content-end">
+				<button
+					class="btn btn-sm btn-warning edit-button"
+					data-bs-toggle="modal"
+					data-bs-target="#editorModal"
+				>
+					<i class="bi bi-pencil-square me-1"></i>
+					Szerkesztés
+				</button>
+			</div>
+		</div>
+	</template>
+
 
 	<!-- Modal -->
 	<div class="modal fade" id="editorModal" tabindex="-1" aria-labelledby="editorModalLabel" aria-hidden="true">

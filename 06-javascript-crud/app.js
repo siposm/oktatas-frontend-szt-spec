@@ -246,33 +246,20 @@ class Renderer {
 	 * @returns {object} HTML card object
 	 */
 	createCard(developer) {
-		let card = document.createElement("div")
-		card.classList.add("card")
-		card.classList.add("mb-3")
+		const template = document.querySelector("#developer-card-template")
+		const fragment = template.content.cloneNode(true)
 
-		card.innerHTML = `
-			<div class="card-body">
-				<h5 class="card-title">${developer.name}</h5>
-				<h6 class="card-subtitle mb-2 text-body-secondary">${this.createRoleBadge(developer)}</h6>
-			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item"><b>Elérhetőség:</b> ${developer.email}</li>
-				<li class="list-group-item"><b>Bérezés:</b> ${developer.salary} Ft / óra (bruttó)</li>
-				<li class="list-group-item"><b>Tapasztalatok:</b> ${developer.skills.join(" - ")}</li>
-			</ul>
-			<div class="card-body d-flex justify-content-end">
-				<button
-					class="btn btn-sm btn-warning"
-					onclick="logic.loadForEdit('${developer.id}')"
-					data-bs-toggle="modal"
-					data-bs-target="#editorModal"
-				>
-					<i class="bi bi-pencil-square me-1"></i>
-					Szerkesztés
-				</button>
-			</div>
-		`
-		return card
+		fragment.querySelector(".card-title").textContent = developer.name
+		fragment.querySelector(".email").textContent = developer.email
+		fragment.querySelector(".salary").textContent = `${developer.salary} Ft / óra (bruttó)`
+		fragment.querySelector(".skills").textContent = developer.skills.join(" - ")
+		fragment.querySelector(".card-subtitle").innerHTML = this.createRoleBadge(developer)
+
+		fragment
+			.querySelector(".edit-button")
+			.addEventListener("click", () => logic.loadForEdit(developer.id) )
+
+		return fragment
 	}
 
 	/**
