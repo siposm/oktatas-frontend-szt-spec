@@ -8,8 +8,47 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="mx-5 my-3">
-	<h1 class="display-5">Developer CRUD application</h1>
-	<div class="target"></div>
+	<h1 class="display-5 mb-5">Developer CRUD application</h1>
+
+	<button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#editorModal">
+		<i class="bi bi-plus-circle-dotted me-1"></i>
+		Új személy hozzáadása
+	</button>
+
+	<div class="target mt-5"></div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="editorModal" tabindex="-1" aria-labelledby="editorModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Szerkesztés</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<input type="text" id="input-name" placeholder="Név..." class="form-control mb-2">
+					<input type="text" id="input-role" placeholder="Pozíció..." class="form-control mb-2">
+					<input type="text" id="input-salary" placeholder="Bérezés..." class="form-control mb-2">
+					<input type="text" id="input-email" placeholder="Email..." class="form-control mb-2">
+					<input type="text" id="input-skills" placeholder="Tapasztalatok..." class="form-control mb-2">
+					<div class="alert alert-info">
+						Az egyes tapasztalatokat, space nélkül vesszőkkel elválasztva kell felvinni.
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">
+						<i class="bi bi-x-circle me-1"></i>
+						Elvetés
+					</button>
+					<button type="button" class="btn btn-sm btn-success" onclick="logic.save()">
+						<i class="bi bi-check-circle-fill me-1"></i>
+						Mentés
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="app.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

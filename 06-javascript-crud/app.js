@@ -82,6 +82,10 @@ class Logic {
       }
     ]
   }
+
+	save() {
+
+	}
 }
 
 /**
