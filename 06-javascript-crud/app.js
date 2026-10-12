@@ -4,17 +4,19 @@
  * Business logic representation
  */
 class Logic {
+	#developers
 	#renderer
 
 	constructor(renderer) {
 		this.#renderer = renderer
+		this.#developers = this.getSeedData()
 	}
 
 	/**
 	 * Display data to HTML via Renderer.
 	 */
 	displayHtml() {
-		this.#renderer.renderCards(this.getSeedData())
+		this.#renderer.renderCards(this.#developers)
 	}
 
 	/**
@@ -83,8 +85,23 @@ class Logic {
     ]
   }
 
+	/**
+	 * Saves the new developer based on given form data.
+	 */
 	save() {
+		let formData = this.#renderer.getFormData()
 
+		let newDev = {
+			name: formData.name,
+			role: formData.role,
+			salary: formData.salary,
+			email: formData.email,
+			skills: formData.skills
+		}
+
+		this.#developers.unshift(newDev)
+
+		this.displayHtml()
 	}
 }
 
@@ -99,6 +116,7 @@ class Renderer {
 	 */
 	renderCards(array) {
     let t = document.querySelector(".target")
+		t.innerHTML = ""
 		array.map(developer => t.appendChild(this.createCard(developer)))
   }
 
@@ -130,6 +148,26 @@ class Renderer {
 			</div>
 		`
 		return card
+	}
+
+	/**
+	 * Reads the current values of the form inputs.
+	 * @returns {object} Object containing the form values
+	 */
+	getFormData() {
+		let name = document.querySelector("#input-name").value
+		let role = document.querySelector("#input-role").value
+		let salary = document.querySelector("#input-salary").value
+		let email = document.querySelector("#input-email").value
+		let skills = document.querySelector("#input-skills").value
+
+		return {
+			name: name,
+			role: role,
+			salary: Number(salary),
+			email: email,
+			skills: skills.split(",")
+		}
 	}
 }
 
