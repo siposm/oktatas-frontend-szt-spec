@@ -263,7 +263,7 @@ class Renderer {
 
 		fragment.querySelector(".card-title").textContent = developer.name
 		fragment.querySelector(".email").textContent = developer.email
-		fragment.querySelector(".salary").textContent = `${developer.salary} Ft / óra (bruttó)`
+		fragment.querySelector(".salary").textContent = developer.salary.toLocaleString("hu-HU") + ` Ft / óra (bruttó)`
 		fragment.querySelector(".skills").textContent = developer.skills.join(" - ")
 		fragment.querySelector(".card-subtitle").innerHTML = this.createRoleBadge(developer)
 
