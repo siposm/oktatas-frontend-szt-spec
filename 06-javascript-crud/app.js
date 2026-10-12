@@ -171,6 +171,18 @@ class Logic {
 		this.#toEditDeveloperId = undefined
 	}
 
+	delete(developerId) {
+		for (let i = 0; i < this.#developers.length; i++) {
+			if (this.#developers[i].id === developerId) {
+				this.#developers.splice(i, 1)
+				break
+			}
+		}
+
+		this.saveToLocalStorage()
+		this.displayHtml()
+	}
+
 	/**
 	 * Generates a simple string ID.
 	 * @returns {string} The generated ID.
@@ -257,7 +269,11 @@ class Renderer {
 
 		fragment
 			.querySelector(".edit-button")
-			.addEventListener("click", () => logic.loadForEdit(developer.id) )
+			.addEventListener("click", () => logic.loadForEdit(developer.id))
+
+		fragment
+			.querySelector(".delete-button")
+			.addEventListener("click", () => logic.delete(developer.id))
 
 		return fragment
 	}
