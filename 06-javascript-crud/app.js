@@ -8,11 +8,28 @@ class Logic {
 	#renderer
 	#editAction = false
 	#toEditDeveloperId = undefined
+	#connectionString = "_developersDbKey"
 
 	constructor(renderer) {
 		this.#renderer = renderer
-		this.#developers = this.getSeedData()
+		// this.#developers = this.getSeedData()
+		this.#developers = this.readFromLocalStorage()
 		this.#renderer.onModalHidden(() => this.resetForm())
+	}
+
+	/**
+	 * Saves the developers to localStorage via serialization.
+	 */
+	saveToLocalStorage() {
+		localStorage.setItem(this.#connectionString, JSON.stringify(this.#developers))
+	}
+
+	/**
+	 * Reads the elements from localStorage.
+	 * @returns {array} Array of developer objects
+	 */
+	readFromLocalStorage() {
+		return JSON.parse(localStorage.getItem(this.#connectionString)) ?? this.getSeedData()
 	}
 
 	/**
@@ -104,6 +121,7 @@ class Logic {
 		if (this.#editAction) this.update()
 		else this.create()
 
+		this.saveToLocalStorage()
 		this.displayHtml()
 	}
 
@@ -131,8 +149,6 @@ class Logic {
 	 * Reads the inputs and updates an existing object.
 	 */
 	update() {
-		this.#editAction = false
-
 		let formData = this.#renderer.getFormData()
 
 		let newDev = {
@@ -147,9 +163,12 @@ class Logic {
 		for (let i = 0; i < this.#developers.length; i++) {
 			if (this.#developers[i].id === this.#toEditDeveloperId) {
 				this.#developers[i] = newDev
-				return
+				break
 			}
 		}
+
+		this.#editAction = false
+		this.#toEditDeveloperId = undefined
 	}
 
 	/**
