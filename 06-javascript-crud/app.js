@@ -6,10 +6,13 @@
 class Logic {
 	#developers
 	#renderer
+	#editAction = false
+	#toEditDeveloperId = undefined
 
 	constructor(renderer) {
 		this.#renderer = renderer
 		this.#developers = this.getSeedData()
+		this.#renderer.onModalHidden(() => this.resetForm())
 	}
 
 	/**
@@ -26,28 +29,32 @@ class Logic {
 	getSeedData() {
     return [
       {
-        name: "John Doe",
+        id: "jm7i3e",
+				name: "John Doe",
         role: "Fejlesztő",
         salary: 5000,
         email: "john.doe@example.com",
         skills: ["JavaScript", "HTML", "CSS", "Angular", "Sass CSS"]
       },
       {
-        name: "Jane Smith",
+        id: "1ga5hb",
+				name: "Jane Smith",
         role: "Projektvezető",
         salary: 6000,
         email: "jane.smith@example.com",
         skills: ["Team leadership", "SCRUM", "Soft skills"]
       },
       {
-        name: "David Johnson",
+        id: "i27tyw",
+				name: "David Johnson",
         role: "Tesztelő",
         salary: 4500,
         email: "david.johnson@example.com",
         skills: ["nUnit", "Moq framework", "E2E testing"]
       },
       {
-        name: "Emily Williams",
+        id: "ffr1ji",
+				name: "Emily Williams",
         role: "Fejlesztő",
         salary: 4000,
         email: "emily.williams@example.com",
@@ -62,21 +69,24 @@ class Logic {
         ]
       },
       {
-        name: "Michael Brown",
+        id: "d5daep",
+				name: "Michael Brown",
         role: "Rendszergazda",
         salary: 5500,
         email: "michael.brown@example.com",
         skills: ["Linux", "AWS", "Docker", "Serverless architecture"]
       },
       {
-        name: "Sarah Taylor",
+        id: "yi1m9t",
+				name: "Sarah Taylor",
         role: "Területi Vezető",
         salary: 7000,
         email: "sarah.taylor@example.com",
         skills: ["Team management", "Client communication", "Project planning"]
       },
       {
-        name: "Christopher Miller",
+        id: "c09ugk",
+				name: "Christopher Miller",
         role: "Analitikus",
         salary: 5200,
         email: "christopher.miller@example.com",
@@ -86,12 +96,25 @@ class Logic {
   }
 
 	/**
-	 * Saves the new developer based on given form data.
+	 * Saving in two way:
+	 * 1) update an existing record
+	 * 2) creating a new object
 	 */
 	save() {
+		if (this.#editAction) this.update()
+		else this.create()
+
+		this.displayHtml()
+	}
+
+	/**
+	 * Saves the new developer based on given form data.
+	 */
+	create() {
 		let formData = this.#renderer.getFormData()
 
 		let newDev = {
+			id: this.generateId(),
 			name: formData.name,
 			role: formData.role,
 			salary: formData.salary,
@@ -103,6 +126,75 @@ class Logic {
 
 		this.displayHtml()
 	}
+
+	/**
+	 * Reads the inputs and updates an existing object.
+	 */
+	update() {
+		this.#editAction = false
+
+		let formData = this.#renderer.getFormData()
+
+		let newDev = {
+			id: this.#toEditDeveloperId, // ID remains the same!
+			name: formData.name,
+			role: formData.role,
+			salary: formData.salary,
+			email: formData.email,
+			skills: formData.skills
+		}
+
+		for (let i = 0; i < this.#developers.length; i++) {
+			if (this.#developers[i].id === this.#toEditDeveloperId) {
+				this.#developers[i] = newDev
+				return
+			}
+		}
+	}
+
+	/**
+	 * Generates a simple string ID.
+	 * @returns {string} The generated ID.
+	 */
+	generateId() {
+		return Math.random().toString(36).substring(2, 8)
+	}
+
+	/**
+	 * Loads the selected developer for edit.
+	 * @param {string} developerId The developer's id
+	 */
+	loadForEdit(developerId) {
+		let dev = this.findDeveloperById(developerId)
+
+		this.#renderer.loadInputs(dev)
+
+		this.#editAction = true // to decide if it's CREATE or EDIT function
+		this.#toEditDeveloperId = developerId // storing the dev id in the class to retrieve later -> no data-id attributes...
+	}
+
+	/**
+	 * Finds the developer object by ID.
+	 * @param {string} developerId The developer's ID
+	 * @returns {object | undefined} The developer object
+	 */
+	findDeveloperById(developerId) {
+		for (let i = 0; i < this.#developers.length; i++) {
+			if (this.#developers[i].id === developerId) {
+				return this.#developers[i]
+			}
+		}
+		return undefined
+	}
+
+	/**
+	 * Resets the form and the current edit state.
+	 */
+	resetForm() {
+		this.#renderer.resetInputs()
+		this.#editAction = false
+		this.#toEditDeveloperId = undefined
+	}
 }
 
 /**
@@ -110,6 +202,15 @@ class Logic {
  * creating HTML elements based on given data.
  */
 class Renderer {
+	/**
+	 * Registers an event for the Bootstrap modal hidden event.
+	 * @param {Function} callback Function to execute when the modal is hidden
+	 */
+	onModalHidden(callback) {
+		let modal = document.querySelector("#editorModal")
+		modal.addEventListener("hidden.bs.modal", callback)
+	}
+
 	/**
 	 * Renders the Bootstrap cards for each element in the array.
 	 * @param {array} array Array of developers
@@ -141,10 +242,10 @@ class Renderer {
 				<li class="list-group-item"><b>Tapasztalatok:</b> ${developer.skills.join(" - ")}</li>
 			</ul>
 			<div class="card-body d-flex justify-content-end">
-				<a href="#" class="btn btn-sm btn-warning">
+				<button class="btn btn-sm btn-warning" onclick="logic.loadForEdit('${developer.id}')" data-bs-toggle="modal" data-bs-target="#editorModal">
 					<i class="bi bi-pencil-square me-1"></i>
 					Szerkesztés
-				</a>
+				</button>
 			</div>
 		`
 		return card
@@ -168,6 +269,29 @@ class Renderer {
 			email: email,
 			skills: skills.split(",")
 		}
+	}
+
+	/**
+	 * Loads a developer object's data into the form inputs.
+	 * @param {object} developer Developer object
+	 */
+	loadInputs(developer) {
+		document.querySelector("#input-name").value = developer.name
+		document.querySelector("#input-role").value = developer.role
+		document.querySelector("#input-salary").value = developer.salary
+		document.querySelector("#input-email").value = developer.email
+		document.querySelector("#input-skills").value = developer.skills
+	}
+
+	/**
+	 * Resets the form's inputs to default empty values.
+	 */
+	resetInputs() {
+		document.querySelector("#input-name").value = ""
+		document.querySelector("#input-role").value = ""
+		document.querySelector("#input-salary").value = ""
+		document.querySelector("#input-email").value = ""
+		document.querySelector("#input-skills").value = ""
 	}
 }
 
