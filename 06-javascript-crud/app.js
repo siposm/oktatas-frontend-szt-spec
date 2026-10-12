@@ -234,7 +234,7 @@ class Renderer {
 		card.innerHTML = `
 			<div class="card-body">
 				<h5 class="card-title">${developer.name}</h5>
-				<h6 class="card-subtitle mb-2 text-body-secondary">${developer.role}</h6>
+				<h6 class="card-subtitle mb-2 text-body-secondary">${this.createRoleBadge(developer)}</h6>
 			</div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><b>Elérhetőség:</b> ${developer.email}</li>
@@ -242,13 +242,53 @@ class Renderer {
 				<li class="list-group-item"><b>Tapasztalatok:</b> ${developer.skills.join(" - ")}</li>
 			</ul>
 			<div class="card-body d-flex justify-content-end">
-				<button class="btn btn-sm btn-warning" onclick="logic.loadForEdit('${developer.id}')" data-bs-toggle="modal" data-bs-target="#editorModal">
+				<button
+					class="btn btn-sm btn-warning"
+					onclick="logic.loadForEdit('${developer.id}')"
+					data-bs-toggle="modal"
+					data-bs-target="#editorModal"
+				>
 					<i class="bi bi-pencil-square me-1"></i>
 					Szerkesztés
 				</button>
 			</div>
 		`
 		return card
+	}
+
+	/**
+	 * Creates Bootstrap badge for role.
+	 * @param {object} developer Developer object
+	 * @returns {string} An HTML span element as string
+	 */
+	createRoleBadge(developer) {
+		return `
+			<span class="badge ${this.roleLookup(developer.role)}">
+				${developer.role}
+			</span>
+		`
+	}
+
+	/**
+	 * Looks up the corresponding class for the given input role.
+	 * @param {string} role The given string role
+	 * @returns {string} A specific class name as string
+	 */
+	roleLookup(role) {
+		const roles = [
+			{ role: "Fejlesztő", className: "text-bg-primary" },
+			{ role: "Projektvezető", className: "text-bg-danger" },
+			{ role: "Rendszergazda", className: "text-bg-info" },
+			{ role: "Területi Vezető", className: "text-bg-success" }
+		]
+
+		for (let i = 0; i < roles.length; i++) {
+			if (roles[i].role === role) {
+				return roles[i].className
+			}
+		}
+
+		return "text-bg-secondary"
 	}
 
 	/**
