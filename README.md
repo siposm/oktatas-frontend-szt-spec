@@ -59,7 +59,7 @@ Bevezetés a JavaScript nyelvbe: kialakulása és szerepe a weben, vanilla JavaS
 
 ### 💻 05. hét – JavaScript 2.
 
-Megismerjük a DOM-ot (Document Object Model) mint a HTML dokumentum strukturált, fa alapú reprezentációját és a JavaScript–HTML közötti programozási interfészt. Megtanuljuk, hogyan érhetők el és módosíthatók HTML elemek JavaScriptből, hogyan működik az oldal betöltése és a DOM létrejötte, illetve megismerjük a legfontosabb DOM-lekérdezési műveleteket, például a `querySelector`, `getElementById` és `getElementsByClassName` használatát. A DOM-ot a kliensoldali program input/output felületeként is értelmezzük.
+Megismerjük a DOM-ot (Document Object Model) mint a HTML dokumentum strukturált, fa alapú reprezentációját és a JavaScript–HTML közötti programozási interfészt. Megtanuljuk, hogyan érhetők el és módosíthatók HTML elemek JavaScriptből, hogyan működik az oldal betöltése és a DOM létrejötte, illetve megismerjük a legfontosabb DOM-lekérdezési műveleteket, például a `querySelector`, `getElementById` és `getElementsByClassName` használatát. A DOM-ot a kliensoldali program input/output felületeként is értelmezzük. Továbbá, bemutatásra kerül a hoisting jelenség a `var` változótípus esetén; az imperatív és deklaratív programozás; valamint az XSS támadás.
 
 **Gyakorlat:** egy *Todo manager* alkalmazást készítünk, amely CRUD módon kezeli a teendőket. A felület kialakításához Bootstrapet használunk. A kód jobb áttekinthetősége és dokumentálhatósága érdekében JSDoc kommenteket használunk a függvények, paraméterek és visszatérési értékek leírására.
 
