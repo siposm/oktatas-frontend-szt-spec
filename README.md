@@ -1,4 +1,4 @@
-![banner](assets/banner.png)
+![banner](assets/banner.webp)
 
 ## Frontend fejlesztés - Szoftver specializáció BPROF
 
@@ -16,20 +16,20 @@ TTK: <https://nik.uni-obuda.hu/targyleirasok/wp-content/uploads/2026/06/UMFronte
 
 | Hét | Témakör |
 | --- | --- |
-| 01. | [Féléves tematika, a web működése, HTML alapismeretek](#01-hét--féléves-tematika-a-web-működése-html-alapismeretek) |
-| 02. | [CSS ismeretek](#02-hét--css-ismeretek) |
-| 03. | [Bootstrap CSS keretrendszer](#03-hét--bootstrap-css-keretrendszer) |
-| 04. | [JavaScript 1.](#04-hét--javascript-1) |
-| 05. | [JavaScript 2.](#05-hét--javascript-2) |
-| 06. | [JavaScript 3.](#06-hét--javascript-3) |
-| 07. | [1. zárthelyi dolgozat](#07-hét--1-zárthelyi-dolgozat) |
-| 08. | [JavaScript 4.](#08-hét--javascript-4) |
-| 09. | [JavaScript 5.](#09-hét--javascript-5) |
-| 10. | [JavaScript 6.](#10-hét--javascript-6) |
-| 11. | [Rektori szünet – Konzultáció](#11-hét--rektori-szünet--konzultáció) |
-| 12. | [Rektori szünet – Konzultáció](#12-hét--rektori-szünet--konzultáció) |
-| 13. | [2. zárthelyi dolgozat](#13-hét--2-zárthelyi-dolgozat) |
-| 14. | [Pótló zárthelyi dolgozat](#14-hét--pótló-zárthelyi-dolgozat) |
+| 01. | [Féléves tematika, a web működése, HTML alapismeretek](#-01-hét--féléves-tematika-a-web-működése-html-alapismeretek) |
+| 02. | [CSS ismeretek](#-02-hét--css-ismeretek) |
+| 03. | [Bootstrap CSS keretrendszer](#-03-hét--bootstrap-css-keretrendszer) |
+| 04. | [JavaScript 1.](#-04-hét--javascript-1) |
+| 05. | [JavaScript 2.](#-05-hét--javascript-2) |
+| 06. | [JavaScript 3.](#-06-hét--javascript-3) |
+| 07. | [1. zárthelyi dolgozat](#-07-hét--1-zárthelyi-dolgozat) |
+| 08. | [JavaScript 4.](#-08-hét--javascript-4) |
+| 09. | [JavaScript 5.](#-09-hét--javascript-5) |
+| 10. | [JavaScript 6.](#-10-hét--javascript-6) |
+| 11. | [Rektori szünet – Konzultáció](#-11-hét--rektori-szünet--konzultáció) |
+| 12. | [Rektori szünet – Konzultáció](#-12-hét--rektori-szünet--konzultáció) |
+| 13. | [2. zárthelyi dolgozat](#-13-hét--2-zárthelyi-dolgozat) |
+| 14. | [Pótló zárthelyi dolgozat](#-14-hét--pótló-zárthelyi-dolgozat) |
 
 <br>
 
