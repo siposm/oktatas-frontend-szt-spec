@@ -40,4 +40,34 @@ export class Renderer {
 			case 3: return "priority-level-3"
 		}
 	}
+
+	createTodoItem() {
+		const title = document.querySelector("#input-todo-title").value
+		const desc = document.querySelector("#input-todo-desc").value
+		const prio = document.querySelector("#input-todo-prio").value
+
+		const newTodo = new Todo(title, desc, prio, false)
+
+		this.#resetInputs()
+
+		return newTodo
+	}
+
+	#resetInputs() {
+		document.querySelector("#input-todo-title").value = ""
+		document.querySelector("#input-todo-desc").value = ""
+		document.querySelector("#input-todo-prio").value = ""
+	}
+
+	initEventListeners(logic) {
+		// az app.js type="module"-ként való használata esetén a JavaScript
+		// saját modul-scope-ban fut és így a benne deklarált változók, függvények
+		// nem kerülnek automatikusan a globális window objektumra
+		// ezért event listenerekből tesszük hozzá
+
+		document.querySelector("#create-button").addEventListener(
+			"click",
+			() => logic.create()
+		)
+	}
 }

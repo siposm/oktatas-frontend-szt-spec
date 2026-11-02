@@ -9,6 +9,7 @@ export class Logic {
 	constructor(renderer) {
 		this.#renderer = renderer
 		this.#todos = this.#loadSeedData()
+		this.#renderer.initEventListeners(this)
 		this.displayItems()
 	}
 
@@ -23,5 +24,11 @@ export class Logic {
 
 	displayItems() {
 		this.#renderer.renderTodoItems(this.#todos)
+	}
+
+	create() {
+		const newTodo = this.#renderer.createTodoItem()
+		this.#todos.push(newTodo)
+		this.displayItems()
 	}
 }
