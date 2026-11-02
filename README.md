@@ -81,7 +81,7 @@ Megismerjük a JavaScript hibakeresési lehetőségeit, a böngésző fejlesztő
 
 ### 💻 09. hét – JavaScript 5.
 
-Áttekintjük a JavaScript modulrendszer használatát, az `import` és `export` működését, valamint a kód több fájlra bontásának lehetőségeit, tekintettel a függőségek explicit módon történő kezelésére. Megismerjük a legfontosabb tömbműveleteket és magasabb rendű függvényeket, például a `map`, `filter`, `find`, `reduce`, `some` és `every` használatát. Foglalkozunk továbbá a progressive enhancement és graceful degradation alapelveivel.
+Áttekintjük a JavaScript modulrendszer használatát, az `import` és `export` működését, valamint a kód több fájlra bontásának lehetőségeit, tekintettel a függőségek explicit módon történő kezelésére. Megismerjük a legfontosabb tömbműveleteket és magasabb rendű függvényeket, például a `sort`, `map`, `filter`, `find`, `reduce`, `some` és `every` használatát. Foglalkozunk továbbá a progressive enhancement és graceful degradation alapelveivel.
 
 **Gyakorlat:** meglévő JavaScript kód modulokra bontása, adathalmazok feldolgozása tömb metódusokkal.
 
