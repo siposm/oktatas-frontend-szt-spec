@@ -1,0 +1,23 @@
+.header {
+	text-align: center;
+	margin: 0 auto;
+	max-width: 500px;
+}
+
+body {
+  background: linear-gradient(
+    125deg,
+    #171b20 0%,
+    #1c2931 45%,
+    #18382e 75%,
+    #202428 100%
+  );
+  background-attachment: fixed;
+}
+
+.card:hover {
+	border-color: #1b6d53;
+	box-shadow:
+		0 4px 16px rgba(27, 109, 83, 0.25),
+		0 8px 32px rgba(27, 109, 83, 0.15);
+}
