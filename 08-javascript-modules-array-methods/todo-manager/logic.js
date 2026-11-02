@@ -43,4 +43,29 @@ export class Logic {
 
 		this.displayItems()
 	}
+
+	filter(selectedOption) {
+		let filtered = []
+
+		switch (selectedOption) {
+			case "pending":
+				filtered = this.#todos.filter(x => x.done === false)
+				this.#renderer.renderTodoItems(filtered)
+				break;
+			case "completed":
+				filtered = this.#todos.filter(x => x.done === true)
+				this.#renderer.renderTodoItems(filtered)
+				break;
+			case "priority-asc":
+				filtered = this.#todos.toSorted((a,b) => a.priority - b.priority)
+				this.#renderer.renderTodoItems(filtered)
+				break;
+			case "priority-desc":
+				filtered = this.#todos.toSorted((a,b) => b.priority - a.priority)
+				this.#renderer.renderTodoItems(filtered)
+				break;
+			default: this.displayItems()
+				break;
+		}
+	}
 }

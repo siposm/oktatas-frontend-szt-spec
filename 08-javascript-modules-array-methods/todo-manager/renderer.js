@@ -57,6 +57,7 @@ export class Renderer {
 		document.querySelector("#input-todo-title").value = ""
 		document.querySelector("#input-todo-desc").value = ""
 		document.querySelector("#input-todo-prio").value = ""
+		document.querySelector("#todo-filter").value = "default"
 	}
 
 	initEventListeners(logic) {
@@ -74,5 +75,10 @@ export class Renderer {
 			"click",
 			(event) => logic.markAsDone(event)
 		)
+
+		document.querySelector("#todo-filter").addEventListener("change", event => {
+			const selectedOption = event.target.value
+			logic.filter(selectedOption)
+		})
 	}
 }

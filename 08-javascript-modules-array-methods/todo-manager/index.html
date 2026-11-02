@@ -29,6 +29,17 @@
 			</div>
 			<button class="btn btn-success w-100" id="create-button">Létrehozás</button>
 		</div>
+
+		<div class="alert alert-info">
+			<h5>Szűrés</h5>
+			<select id="todo-filter" class="form-select form-select-sm w-100">
+				<option value="default" selected>Alap</option>
+				<option value="pending">Elvégzendők</option>
+				<option value="completed">Készek</option>
+				<option value="priority-desc">Prioritás csökkenő</option>
+				<option value="priority-asc">Prioritás növekvő</option>
+			</select>
+		</div>
 	</div>
 
 	<div id="todo-container" class="d-flex flex-wrap gap-3 justify-content-center mt-5"></div>
