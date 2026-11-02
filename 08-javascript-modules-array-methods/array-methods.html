@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ADATFORRÁSOK
+
+      const numbers = [12, 5, 8, 21, 3, 16, 9, 30, 7, 14, 25, 6]
+
+      const students = [
+        { id: 1, name: "Anna", age: 21, grade: 5, active: true },
+        { id: 2, name: "Béla", age: 24, grade: 3, active: true },
+        { id: 3, name: "Csilla", age: 20, grade: 4, active: false },
+        { id: 4, name: "Dávid", age: 23, grade: 2, active: true },
+        { id: 5, name: "Eszter", age: 22, grade: 5, active: true },
+        { id: 6, name: "Ferenc", age: 25, grade: 1, active: false },
+        { id: 7, name: "Gábor", age: 19, grade: 4, active: true },
+        { id: 8, name: "Hanna", age: 22, grade: 3, active: false }
+      ]
+
+			//#region basics
+			// ============================================================
+      // 0. Formaiságok és alapismeretek
+      // ============================================================
+			function print(param) { console.log(param) } // fölösleges ezért fgv-t létrehozni, elszennyezi a kódot
+			numbers.forEach(x => print(x))
+
+			numbers.forEach(function(x) { console.log(x) }) // helyette helyben ki lehet fejteni (anonymous func)
+
+			numbers.forEach((x) => console.log(x)) // de minek mindig kiírni a function részt? --> arrow function ~ lambda expression
+			numbers.forEach(x => console.log(x)) // 1 db paraméter esetén a () elhagyható
+
+			numbers.forEach(() => console.log("hello")) // ha nincs bemeneti paraméter akkor () jelölés kell (persze ekkor nincs is "ciklusváltozó")
+
+			numbers.forEach(x => { // több sor esetén kell {}
+				console.log("----")
+				console.log("  " + x)
+				console.log("----")
+			})
+			//#endregion
+
+			//#region foreach
+      // ============================================================
+      // 1. forEach() – Tömb elemeinek bejárása
+      // ============================================================
+			// Megjegyzés: forEach vs map
+			// - forEach: tömb elemeit bejárva művelet végrehajtása
+			// - map: tömb elemeit bejárva adatok transzformálása (és azok új tömbként való visszaadása)
+
+      // 1.1. Írasd ki a számokat egyesével!
+      numbers.forEach(n => console.log(n))
+
+      // 1.2. Írasd ki a számokat az indexükkel együtt!
+      numbers.forEach((n, i) => console.log(i, n))
+
+      // 1.3. Írasd ki minden hallgató nevét és érdemjegyét!
+      students.forEach(s => console.log(`${s.name}: ${s.grade}`))
+			//#endregion
+
+			//#region map
+      // ============================================================
+      // 2. map() – Elemek transzformálása
+      // ============================================================
+
+      // 2.1. Készíts új tömböt a számok négyzetéből!
+      const squared = numbers.map(n => n ** 2)
+
+      // 2.2. Készíts új tömböt, amelyben minden szám kétszeres!
+      const doubled = numbers.map(n => n * 2)
+
+      // 2.3. Készíts tömböt, amely csak a hallgatók neveit tartalmazza!
+      const names = students.map(s => s.name)
+
+      // 2.4. Készíts tömböt a hallgatók nevével és életkorával!
+      const studentInfo = students.map(s => ({
+        name: s.name,
+        age: s.age
+      }))
+			//#endregion
+
+			//#region filter
+      // ============================================================
+      // 3. filter() – Elemek szűrése
+      // ============================================================
+
+      // 3.1. Válogasd ki a páros számokat!
+      const evenNumbers = numbers.filter(n => n % 2 === 0)
+
+      // 3.2. Válogasd ki a 10-nél nagyobb számokat!
+      const greaterThanTen = numbers.filter(n => n > 10)
+
+      // 3.3. Válogasd ki az aktív hallgatókat!
+      const activeStudents = students.filter(s => s.active)
+
+      // 3.4. Válogasd ki a sikeres hallgatókat (grade >= 2)!
+      const passedStudents = students.filter(s => s.grade >= 2)
+
+      // 3.5. Válogasd ki a 22 éves vagy fiatalabb, aktív hallgatókat!
+      const youngActive = students.filter(s => s.age <= 22 && s.active)
+			//#endregion
+
+			//#region find-findIndex
+      // ============================================================
+      // 4. find() és findIndex() – Keresés
+      // ============================================================
+
+      // 4.1. Keresd meg az első 20-nál nagyobb számot!
+      const firstGreaterThan20 = numbers.find(n => n > 20)
+
+      // 4.2. Keresd meg az első páratlan szám indexét!
+      const firstOddIndex = numbers.findIndex(n => n % 2 !== 0)
+
+      // 4.3. Keresd meg a 4-es azonosítójú hallgatót!
+      const studentById = students.find(s => s.id === 4)
+
+      // 4.4. Keresd meg az első elégtelen osztályzatú hallgatót!
+      const failedStudent = students.find(s => s.grade === 1)
+			//#endregion
+
+			//#region some-every
+      // ============================================================
+      // 5. some() és every() – Feltételek vizsgálata
+      // ============================================================
+
+      // 5.1. Van-e 25-nél nagyobb szám?
+      const hasLargeNumber = numbers.some(n => n > 25)
+
+      // 5.2. Minden szám pozitív?
+      const allPositive = numbers.every(n => n > 0)
+
+      // 5.3. Van-e bukott hallgató?
+      const hasFailedStudent = students.some(s => s.grade === 1)
+
+      // 5.4. Minden hallgató legalább 18 éves?
+      const allAdults = students.every(s => s.age >= 18)
+
+      // 5.5. Minden aktív hallgató sikeresen teljesített?
+      const activeStudentsPassed = students
+        .filter(s => s.active)
+        .every(s => s.grade >= 2)
+
+			//#endregion
+
+			//#region reduce
+      // ============================================================
+      // 6. reduce() – Aggregálás
+      // ============================================================
+
+      // 6.1. Számítsd ki a számok összegét!
+      const sum = numbers.reduce((acc, n) => acc + n, 0)
+
+      // 6.2. Számítsd ki a számok szorzatát!
+      const product = numbers.reduce((acc, n) => acc * n, 1)
+
+      // 6.3. Számítsd ki a számok átlagát!
+      const average = numbers.reduce((acc, n) => acc + n, 0) / numbers.length
+
+      // 6.4. Számítsd ki a hallgatók átlagéletkorát!
+      const averageAge =
+        students.reduce((acc, s) => acc + s.age, 0) / students.length
+
+      // 6.5. Számold meg az aktív hallgatókat reduce segítségével!
+      const activeCount = students.reduce(
+        (acc, s) => acc + (s.active ? 1 : 0),
+        0
+      )
+
+      // 6.6. Keresd meg a legnagyobb számot reduce segítségével!
+      const max = numbers.reduce((acc, n) => Math.max(acc, n), -Infinity)
+			//#endregion
+
+			//#region sorting
+      // ============================================================
+      // 7. sort() – Rendezés
+      // ============================================================
+			// Megjegyzés (1):
+			// - sort() esetén az eredeti tömb elemei megváltoznak (mutálás - "mutates the array")
+			// - toSorted() esetén egy másolat tömb jön létre és az kerül visszaadásra
+			// 	 ez esetben a [...xy] spread operátor elhagyható
+			//
+			// Megjegyzés (2):
+			// - pusztán a tomb.sort() meghívása nem elég! ilyenkor string-ként rendezi az elemeket ("10" < "2")
+			// - pontos komparátor-t kell megadni
+
+      // 7.1. Rendezd a számokat növekvő sorrendbe!
+			const ascending = [...numbers].sort((a, b) => a - b)
+
+      // 7.2. Rendezd a számokat csökkenő sorrendbe!
+      const descending = [...numbers].sort((a, b) => b - a)
+
+      // 7.3. Rendezd a hallgatókat életkor szerint növekvően!
+      const byAge = [...students].sort((a, b) => a.age - b.age)
+
+      // 7.4. Rendezd a hallgatókat érdemjegy szerint csökkenően!
+      const byGrade = [...students].sort((a, b) => b.grade - a.grade)
+
+      // 7.5. Rendezd a hallgatókat név szerint!
+      const byName = [...students].sort((a, b) => a.name.localeCompare(b.name, "hu"))
+			//#endregion
+
+			//#region includes-indexOf
+      // ============================================================
+      // 8. includes(), indexOf() – Tartalmazás
+      // ============================================================
+
+      // 8.1. Tartalmazza-e a tömb a 16-os számot?
+      const contains16 = numbers.includes(16)
+
+      // 8.2. Keresd meg a 30-as szám indexét!
+      const indexOf30 = numbers.indexOf(30)
+
+      // 8.3. Szerepel-e Anna a hallgatók között?
+      const hasAnna = students.some(s => s.name === "Anna")
+			//#endregion
+
+			//#region slice-splice
+      // ============================================================
+      // 9. slice(), splice() – Tömb részletei, módosítása
+      // ============================================================
+
+      // 9.1. Másold ki az első 5 számot!
+      const firstFive = numbers.slice(0, 5)
+
+      // 9.2. Másold ki az utolsó 3 számot!
+      const lastThree = numbers.slice(-3)
+
+      // 9.3. Töröld egy másolatból a 2. és 3. elemet!
+      const modified = [...numbers]
+      modified.splice(1, 2)
+			//#endregion
+
+			//#region chaining
+      // ============================================================
+      // 10. METÓDUSOK LÁNCOLÁSA
+      // ============================================================
+
+      // 10.1. Páros számok négyzetei, növekvő sorrendben
+      const result1 = numbers
+        .filter(n => n % 2 === 0)
+        .map(n => n ** 2)
+        .sort((a, b) => a - b)
+
+      // 10.2. Aktív hallgatók nevei, ABC sorrendben
+      const result2 = students
+        .filter(s => s.active)
+        .map(s => s.name)
+        .sort((a, b) => a.localeCompare(b, "hu"))
+
+      // 10.3. Jó vagy jeles hallgatók átlagéletkora
+      const goodStudents = students.filter(s => s.grade >= 4)
+
+      const result3 = goodStudents.reduce((acc, s) => acc + s.age, 0) / goodStudents.length
+
+      // 10.4. Az 5 legnagyobb szám összege
+      const result4 = [...numbers]
+        .sort((a, b) => b - a)
+        .slice(0, 5)
+        .reduce((acc, n) => acc + n, 0)
+
+      // 10.5. Sikeres, aktív hallgatók neve és érdemjegye,
+      // érdemjegy szerint csökkenő sorrendben
+      const result5 = students
+        .filter(s => s.active && s.grade >= 2)
+        .map(s => ({ name: s.name, grade: s.grade }))
+        .sort((a, b) => b.grade - a.grade)
+			//#endregion
+
+			//#region advanced
+      // ============================================================
+      // 11. HALADÓ FELADATOK
+      // ============================================================
+
+      // 11.1. Csoportosítsd a hallgatókat érdemjegy szerint!
+      const groupedByGrade = Object.groupBy(students, s => s.grade)
+
+      // 11.2. Határozd meg az egyes érdemjegyek előfordulását!
+      const gradeCounts = students.reduce((acc, s) => {
+        acc[s.grade] = (acc[s.grade] ?? 0) + 1
+        return acc
+      }, {})
+
+      // 11.3. Keresd meg a legfiatalabb hallgatót!
+      const youngest = students.reduce((acc, s) => (s.age < acc.age ? s : acc))
+
+      // 11.4. Készíts név szerint indexelt objektumot!
+      const studentLookup = students.reduce((acc, s) => {
+        acc[s.name] = s
+        return acc
+      }, {})
+
+      // 11.5. Számítsd ki az aktív hallgatók átlagos érdemjegyét!
+      const active = students.filter(s => s.active)
+      const activeAverageGrade = active.reduce((acc, s) => acc + s.grade, 0) / active.length
+			//#endregion
+
+    </script>
+  </body>
+</html>
