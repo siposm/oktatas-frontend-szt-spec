@@ -69,5 +69,10 @@ export class Renderer {
 			"click",
 			() => logic.create()
 		)
+
+		document.querySelector("#todo-container").addEventListener(
+			"click",
+			(event) => logic.markAsDone(event)
+		)
 	}
 }

@@ -31,4 +31,16 @@ export class Logic {
 		this.#todos.push(newTodo)
 		this.displayItems()
 	}
+
+	markAsDone(event) {
+		// console.log(event.target.localName) // delegáció, megnézni!!!
+		const btn = event.target.closest("button")
+		if (!btn) return
+		const id = btn.dataset.id
+
+		const todo = this.#todos.find(x => x.id === id)
+		todo.done = !todo.done
+
+		this.displayItems()
+	}
 }
