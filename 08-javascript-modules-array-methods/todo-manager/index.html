@@ -19,12 +19,23 @@
 	<template id="todo-template">
 		<div class="card" style="width: 22rem;">
 			<div class="card-header">
+				<div class="d-flex justify-content-between">
+					<span class="badge rounded-pill todo-priority">TODO PRIO</span>
+					<span class="badge todo-status text-uppercase">TODO STATUS</span>
+				</div>
 			</div>
 			<div class="card-body">
 				<h5 class="card-title">TODO TITLE</h5>
 				<hr>
 				<p class="card-text">TODO DESCRIPTION</p>
 			</div>
+			<div class="card-footer text-body-secondary d-flex justify-content-between align-items-center">
+				<span class="badge bg-dark card-date fw-normal">TODO DATE</span>
+				<button class="btn btn-sm btn-success rounded-pill">
+					<i class="bi bi-check-circle-fill"></i>
+				</button>
+			</div>
+		</div>
 	</template>
 
 	<script type="module" src="app.js"></script>

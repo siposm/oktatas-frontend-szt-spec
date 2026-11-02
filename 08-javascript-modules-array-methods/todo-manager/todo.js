@@ -15,6 +15,15 @@ export class Todo {
 		this.date = date
 	}
 
+	getFormattedDate() {
+		// return this.date.toLocaleDateString("hu-HU")
+		return this.date.getFullYear()
+		+ "-" +
+		(this.date.getMonth()).toString().padStart(2,"0")
+		+ "-" +
+		(this.date.getDate()).toString().padStart(2,"0")
+	}
+
 	generateId() {
 		return Math.random().toString(36).substring(2, 8)
 	}
