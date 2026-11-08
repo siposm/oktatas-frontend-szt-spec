@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>XMLHttpRequest</h1>
+    <script>
+      function getUser() {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/users/1")
+
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            const user = JSON.parse(xhr.responseText)
+
+            console.log("Név:", user.name)
+            console.log("Email:", user.email)
+            console.log("Város:", user.address.city)
+          } else {
+            console.error("HTTP hiba:", xhr.status)
+          }
+        }
+
+        xhr.onerror = function () {
+          console.error("Hálózati hiba!")
+        }
+
+        xhr.send()
+      }
+
+      getUser()
+    </script>
+  </body>
+</html>

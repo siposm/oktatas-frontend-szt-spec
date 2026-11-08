@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      .developer-avatar {
+        width: 100%;
+        height: 100px;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body class="m-3">
+    <div class="mx-auto mb-5" style="max-width: 700px">
+      <h1 class="display-6 text-center mb-3">Developer CRUD with API</h1>
+
+			<!-- ! STATISTICS -->
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Statistics</h4>
+        <hr />
+        AVERAGE SALARY: <b><span id="avg-salary"></span> HUF</b>
+        <br />
+        MOST SKILLED DEV: <b><span id="highest-skillset"></span></b>
+				<br />
+        TOP EARNING DEV: <b><span id="highest-salary"></span></b>
+      </div>
+
+			<!-- ! DEVELOPER EDITOR ACCORDION -->
+			<div class="accordion mb-4" id="developerAccordion">
+				<div class="accordion-item">
+					<h2 class="accordion-header">
+						<button
+							class="accordion-button collapsed"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#developerForm"
+							aria-expanded="false"
+							aria-controls="developerForm"
+						>
+							<i class="bi bi-person-gear me-2"></i>
+							Developer Editor
+						</button>
+					</h2>
+
+					<div
+						id="developerForm"
+						class="accordion-collapse collapse"
+						data-bs-parent="#developerAccordion"
+					>
+						<div class="accordion-body">
+
+							<div class="form-floating mb-2">
+								<input type="text" class="form-control" id="dev-id" placeholder="Id" disabled />
+								<label for="dev-id">Id</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="text" class="form-control" id="dev-name" placeholder="Name" />
+								<label for="dev-name">Name</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="text" class="form-control" id="dev-image" placeholder="Image URL" />
+								<label for="dev-image">Image URL</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="number" class="form-control" id="dev-age" placeholder="Age" />
+								<label for="dev-age">Age</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="text" class="form-control" id="dev-job" placeholder="Job" />
+								<label for="dev-job">Job</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="number" class="form-control" id="dev-salary" placeholder="Salary" />
+								<label for="dev-salary">Salary</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="email" class="form-control" id="dev-email" placeholder="Email" />
+								<label for="dev-email">Email</label>
+							</div>
+
+							<div class="form-floating mb-2">
+								<input type="text" class="form-control" id="dev-skills" placeholder="Skills" />
+								<label for="dev-skills">Skills</label>
+							</div>
+
+							<div class="d-flex justify-content-between">
+								<button id="addDeveloperBtn" class="btn btn-success">
+									<i class="bi bi-floppy me-1"></i>
+									Create developer
+								</button>
+								<button id="updateDeveloperBtn" class="btn btn-warning">
+									<i class="bi bi-pencil me-1"></i>
+									Update developer
+								</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- ! TEMPLATE FOR DEVELOPER CARDS -->
+    <template id="developer-card-template">
+      <div class="col-12 col-md-6 col-xl-4 col-xxl-3">
+        <article class="card h-100">
+          <img
+            class="card-img-top developer-avatar mt-3"
+            alt="Developer profile picture"
+          />
+          <div class="card-body">
+            <h5
+              class="card-title d-flex align-items-center justify-content-center gap-2"
+            >
+              <span class="salary-indicator"></span>
+              <span class="developer-name"></span>
+            </h5>
+            <p
+              class="card-subtitle text-body-secondary developer-job d-flex justify-content-center mb-3"
+            ></p>
+            <p class="card-text d-flex justify-content-center mb-2">
+              <span class="developer-salary"></span>
+            </p>
+            <hr />
+            <div
+              class="developer-skills d-flex justify-content-center flex-wrap gap-1"
+            ></div>
+          </div>
+          <div class="card-footer d-flex justify-content-between gap-2">
+            <button type="button" class="btn btn-warning btn-sm edit-button">
+              <i class="bi bi-pencil-square"></i> Edit
+            </button>
+            <button type="button" class="btn btn-danger btn-sm delete-button">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+          </div>
+        </article>
+      </div>
+    </template>
+
+		<!-- ! DEVELOPER CARDS CONTAINER -->
+    <div id="target" class="row g-3"></div>
+
+		<!-- ! FOOTER -->
+    <footer class="border-top mt-5 py-4">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <div class="text-center text-md-start">
+            <h6 class="mb-1">
+              <i class="bi bi-code-slash me-1"></i>
+              Developer CRUD
+            </h6>
+            <small class="text-body-secondary">
+              Demo application built with JavaScript and Bootstrap 5.3
+            </small>
+          </div>
+
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <span class="text-body-secondary small">
+              <i class="bi bi-git me-1"></i> v1.0.0
+            </span>
+            <span class="text-body-secondary small">
+              <i class="bi bi-calendar3 me-1"></i> 2026
+            </span>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-body-secondary text-decoration-none small"
+            >
+              <i class="bi bi-github me-1"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <hr class="my-3" />
+
+        <p class="text-center text-body-secondary small mb-0">
+          © 2026 Developer CRUD · Educational purposes only
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

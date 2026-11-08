@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Promise</h1>
+    <script>
+      function getData() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const success = true
+
+            if (success) {
+              resolve("Adatok sikeresen betöltve!")
+            } else {
+              reject(new Error("Hiba történt!"))
+            }
+          }, 2000)
+        })
+      }
+
+      console.log("Lekérés indítása...")
+
+      getData()
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error.message))
+        .finally(() => console.log("Művelet befejezve."))
+
+      console.log("A program fut tovább...")
+			console.log("...és még mindig fut...")
+			console.log("...amíg már nincs további teendő.")
+    </script>
+  </body>
+</html>

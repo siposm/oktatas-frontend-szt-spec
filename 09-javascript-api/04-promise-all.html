@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Promise all</h1>
+    <script>
+      async function getUsers() {
+        try {
+          const requests = [
+            fetch("https://api.siposm.hu/word?count=10"),
+            fetch("https://api.siposm.hu/word?count=10"),
+            fetch("https://api.siposm.hu/word?count=10")
+          ]
+
+          // HTTP-kérések párhuzamos kezelése
+          const responses = await Promise.all(requests)
+
+          // HTTP-hibák ellenőrzése
+          if (responses.some((response) => !response.ok)) {
+            throw new Error("Sikertelen HTTP-kérés!")
+          }
+
+          // JSON-válaszok feldolgozása
+          const words = await Promise.all(
+            responses.map((response) => response.json())
+          )
+
+					console.log("Lekérések eredményei:")
+          console.log(words)
+
+					console.log("Eredmények egy tömbbe pakolva:")
+					console.log(
+						words.flat()
+						.sort((a,b) => a.localeCompare(b), "hu-HU")
+					)
+
+					console.log("Ismétlődések eltávolítása:")
+					console.log(
+						Array.from(
+							new Set(words.flat())
+						).sort((a,b) => a.localeCompare(b), "hu-HU")
+					)
+
+        } catch (error) {
+          console.error("Hiba:", error)
+        }
+      }
+
+      getUsers()
+    </script>
+  </body>
+</html>
