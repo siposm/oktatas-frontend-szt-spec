@@ -17,13 +17,11 @@
 
       console.log(users) // [] üres tömb, mert ez a rész hamarabb lefut mint ahogy a fentebbi fetch eredménye megérkezik
 
-      users = []
-
       fetch("https://jsonplaceholder.typicode.com/users")
         .then((response) => response.json())
         .then((data) => {
           users = data
-          renderUsers() // TODO: lkajsdlkaj
+          renderUsers() // ez már csak akkor fog lefutni, amikor a válasz visszajön -> nem lesz üres tömb
         })
 
       function renderUsers() {
