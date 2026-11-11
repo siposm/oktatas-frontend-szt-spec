@@ -10,6 +10,10 @@ Ez a repository frontend fejlesztéshez kapcsolódó tananyagokat, példákat, g
 
 <br>
 
+## Gyakorló feladatok
+
+A házi és gyakorló feladatokat a [Wiki](https://github.com/siposm/oktatas-frontend-szt-spec/wiki) alatt lehet elérni!
+
 ## 1. félév heti bontás
 
 TTK: <https://nik.uni-obuda.hu/targyleirasok/wp-content/uploads/2026/06/UMFrontendFejlesztes_SiposMiklos-1.pdf>
