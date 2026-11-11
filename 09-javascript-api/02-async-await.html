@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Async-await</h1>
+    <script>
+      function getData() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({ id: 1, name: "Angular" })
+          }, 2000)
+        })
+      }
+
+      async function main() {
+        console.log("Adatok lekérése...")
+
+        try {
+          const data = await getData() // [*1*]
+          console.log("Eredmény:", data)
+        } catch (error) {
+          console.error("Hiba:", error)
+        }
+
+        console.log("Feldolgozás befejezve.")
+      }
+
+      main()
+
+			console.log("A program fut...")
+			console.log("A program fut...")
+			console.log("A program fut...")
+
+			// [1] Fontos hangsúlyozni, hogy az await nem blokkolja a teljes JavaScript-végrehajtást,
+			// csak az adott aszinkron függvény folytatását függeszti fel, amíg az be nem fejeződik a háttérben.
+			// Addig a program további részei futhatnak.
+    </script>
+  </body>
+</html>
