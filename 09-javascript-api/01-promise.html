@@ -11,7 +11,7 @@
       function getData() {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            const success = true
+            const success = false
 
             if (success) {
               resolve("Adatok sikeresen betöltve!")
@@ -23,6 +23,8 @@
       }
 
       console.log("Lekérés indítása...")
+
+			console.log(getData()) // Promise<pending>
 
       getData()
         .then((data) => console.log(data))
